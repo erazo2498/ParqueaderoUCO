@@ -9,7 +9,10 @@
     <string name="digite_nombre_tarifa">Digite nombre tarifa</string>
     <string name="digite_valor_tarifa">Digite un valor de tarifa</string>
     <string name="requerido">Requerido</string>
+    <string name="actualizar">Actualizar</string>
     <string name="successfully">La información se ha guardado satisfactoriamente</string>
     <string name="tarifas">Tarifas</string>
     <string name="sin_tarifas">No existen tarifas configuradas en el sistema</string>
+    <string name="actualizacion_satisfactoria">La información se actualizo satisfactoria</string>
+    <string name="actualizacion_tarifa">Actualizacion de Tarifas</string>
 </resources>
