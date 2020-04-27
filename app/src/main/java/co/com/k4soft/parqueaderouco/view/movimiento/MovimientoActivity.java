@@ -7,9 +7,11 @@ import android.app.MediaRouteButton;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -47,6 +49,23 @@ public class MovimientoActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initComponents();
         hideComponents();
+        loadSpinner();
+    }
+
+    private void loadSpinner() {
+        listaTarifas = db.getTarifaDAO().listar();
+        if(listaTarifas.isEmpty()){
+            Toast.makeText(getApplication(),R.string.sin_tarifas,Toast.LENGTH_SHORT).show();
+            finish();
+        }else{
+            String[] arrayTarifas = new String[listaTarifas.size()];
+            for (int i=0; i< listaTarifas.size(); i++){
+                arrayTarifas[i]= listaTarifas.get(i).getNombre();
+            }
+
+            ArrayAdapter arrayAdapter = new ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, arrayTarifas);
+            tipoTarifaSpinner.setAdapter(arrayAdapter);
+        }
     }
 
     private void hideComponents() {

@@ -1,8 +1,11 @@
 package co.com.k4soft.parqueaderouco.view;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -33,6 +36,7 @@ public class TarifaActivity extends AppCompatActivity {
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +46,7 @@ public class TarifaActivity extends AppCompatActivity {
         loadTarifas();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void loadTarifas() {
         listaTarifas = db.getTarifaDAO().listar();
         if (listaTarifas.isEmpty()) {
@@ -52,6 +57,7 @@ public class TarifaActivity extends AppCompatActivity {
                 tarifasArray[i] = listaTarifas.get(i).getNombre();
             }
             ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, tarifasArray);
+            listViewTarifas.setBackgroundColor(getColor(R.color.colorPrimary));
             listViewTarifas.setAdapter(arrayAdapter);
         }
     }
@@ -84,6 +90,7 @@ public class TarifaActivity extends AppCompatActivity {
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRestart() {
         super.onRestart();
