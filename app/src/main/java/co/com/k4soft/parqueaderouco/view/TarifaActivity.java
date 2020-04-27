@@ -56,8 +56,7 @@ public class TarifaActivity extends AppCompatActivity {
             for (int i = 0; i < listaTarifas.size(); i++) {
                 tarifasArray[i] = listaTarifas.get(i).getNombre();
             }
-            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, tarifasArray);
-            listViewTarifas.setBackgroundColor(getColor(R.color.colorPrimary));
+            ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, tarifasArray);
             listViewTarifas.setAdapter(arrayAdapter);
         }
     }
