@@ -8,13 +8,9 @@ public class ActionBarUtil {
 
     private final AppCompatActivity appCompatActivity;
 
-
     public ActionBarUtil(AppCompatActivity appCompatActivity) {
         this.appCompatActivity = appCompatActivity;
     }
-
-
-
 
     public void setToolBar(String mensaje) {
         if (appCompatActivity.getSupportActionBar() != null) {
@@ -23,6 +19,5 @@ public class ActionBarUtil {
             appCompatActivity.getSupportActionBar().setTitle(mensaje);
         }
     }
-
 
 }

@@ -10,9 +10,18 @@
     <string name="digite_valor_tarifa">Digite un valor de tarifa</string>
     <string name="requerido">Requerido</string>
     <string name="actualizar">Actualizar</string>
+    <string name="registrar_ingreso">Registrar Ingreso</string>
+    <string name="registrar_salida">Registrar Salida</string>
     <string name="successfully">La información se ha guardado satisfactoriamente</string>
     <string name="tarifas">Tarifas</string>
+    <string name="cantidad_horas">Cantidad de horas:</string>
+    <string name="total_pagar">Total a pagar:</string>
     <string name="sin_tarifas">No existen tarifas configuradas en el sistema</string>
     <string name="actualizacion_satisfactoria">La información se actualizo satisfactoria</string>
     <string name="actualizacion_tarifa">Actualizacion de Tarifas</string>
+    <string name="registrar_ingreso_salida">Registrar ingresos y salidas</string>
+    <string name="digite_placa">Digite una placa</string>
+    <string name="buscar">Buscar</string>
+    <string name="debe_seleccionar_tarifa">Debe seleccionar una tarifa</string>
+    <string name="informacion_guardada_exitosamente">La información se ha guardado exitosamente</string>
 </resources>

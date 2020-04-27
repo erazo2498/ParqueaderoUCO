@@ -96,5 +96,4 @@ public class RegistroTarifaActivity extends AppCompatActivity {
         return true;
     }
 
-
 }
