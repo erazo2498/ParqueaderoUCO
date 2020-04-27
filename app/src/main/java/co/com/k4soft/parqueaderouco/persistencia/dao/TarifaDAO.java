@@ -16,7 +16,6 @@ public interface TarifaDAO {
     @Insert
     void insert(Tarifa tarifa);
 
-
     @Update
     void update(Tarifa tarifa);
 
