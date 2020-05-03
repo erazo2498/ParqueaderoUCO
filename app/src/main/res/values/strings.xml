@@ -24,4 +24,5 @@
     <string name="buscar">Buscar</string>
     <string name="debe_seleccionar_tarifa">Debe seleccionar una tarifa</string>
     <string name="informacion_guardada_exitosamente">La información se ha guardado exitosamente</string>
+    <string name="ver_movimientos">Ver Movimientos</string>
 </resources>

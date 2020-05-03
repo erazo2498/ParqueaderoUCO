@@ -3,6 +3,7 @@ package co.com.k4soft.parqueaderouco.persistencia.dao;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import co.com.k4soft.parqueaderouco.entidades.Movimiento;
 
@@ -14,5 +15,8 @@ public interface MovimientoDAO {
 
     @Insert
     void insert(Movimiento movimiento);
+
+    @Update
+    void update(Movimiento movimiento);
     
 }

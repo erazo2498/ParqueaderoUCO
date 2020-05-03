@@ -45,4 +45,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MovimientoActivity.class);
         startActivity(intent);
     }
+
+    public void goToMovimientos(View view) {
+
+    }
 }

@@ -32,7 +32,6 @@ public class Movimiento {
     @ColumnInfo(name ="fechaSalida")
     private String fechaSalida;
 
-
     @ColumnInfo(name ="finalizaMovimiento")
     private boolean finalizaMovimiento;
 

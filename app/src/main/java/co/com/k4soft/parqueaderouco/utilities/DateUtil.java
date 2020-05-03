@@ -29,7 +29,10 @@ public class DateUtil {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT,Locale.ENGLISH);
         return dateFormat.format(date);
     }
-
+    public static String convertDateToStringWithHour(Date date){
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_HORA,Locale.ENGLISH);
+        return dateFormat.format(date);
+    }
 
     public static String timeFromDates(String fechaInicialString, String fechaFinalString) throws ParseException {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_HORA, Locale.ENGLISH);
@@ -55,6 +58,37 @@ public class DateUtil {
         }
         String tiempoCalculado =  dias + " dias, " + horas + " horas, " + minutos + " minutos y " + diferencia + " segundos";
         return tiempoCalculado;
+
+    }
+    public static int hoursElapsed(String fechaInicialString, String fechaFinalString) throws ParseException {
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_HORA, Locale.ENGLISH);
+        Date fechaInicial = dateFormat.parse(fechaInicialString);
+        Date fechaFinal = dateFormat.parse(fechaFinalString);
+
+        int diferencia = (int) ((fechaFinal.getTime() - fechaInicial.getTime()) / 1000);
+
+        int dias = 0;
+        int horas = 0;
+        int minutos = 0;
+        int totalHoras = 0;
+
+        if (diferencia > 86400) {
+            dias = (int) Math.floor(diferencia / 86400);
+            diferencia = diferencia - (dias * 86400);
+        }
+        if (diferencia > 3600) {
+            horas = (int) Math.floor(diferencia / 3600);
+            diferencia = diferencia - (horas * 3600);
+        }
+        if (diferencia > 60) {
+            minutos = (int) Math.floor(diferencia / 60);
+            diferencia = diferencia - (minutos * 60);
+        }
+        totalHoras = dias*24+horas;
+        if(minutos>0 || diferencia > 0){
+            totalHoras++;
+        }
+        return totalHoras;
 
     }
 
