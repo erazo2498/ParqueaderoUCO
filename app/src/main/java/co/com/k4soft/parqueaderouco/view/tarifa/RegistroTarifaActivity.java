@@ -1,4 +1,4 @@
-package co.com.k4soft.parqueaderouco.view;
+package co.com.k4soft.parqueaderouco.view.tarifa;
 
 import android.os.AsyncTask;
 import android.os.Bundle;

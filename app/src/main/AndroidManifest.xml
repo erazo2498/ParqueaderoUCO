@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.movimiento.MovimientoActivity"></activity>
-        <activity android:name=".view.ActualizarTarifaActivity" />
-        <activity android:name=".view.RegistroTarifaActivity" />
-        <activity android:name=".view.TarifaActivity" />
+        <activity android:name=".view.movimiento.ListaMovimientoActivity"></activity>
+        <activity android:name=".view.movimiento.MovimientoActivity" />
+        <activity android:name=".view.tarifa.ActualizarTarifaActivity" />
+        <activity android:name=".view.tarifa.RegistroTarifaActivity" />
+        <activity android:name=".view.tarifa.TarifaActivity" />
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,14 +1,16 @@
 package co.com.k4soft.parqueaderouco.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import co.com.k4soft.parqueaderouco.R;
 import co.com.k4soft.parqueaderouco.utilities.ActionBarUtil;
+import co.com.k4soft.parqueaderouco.view.movimiento.ListaMovimientoActivity;
 import co.com.k4soft.parqueaderouco.view.movimiento.MovimientoActivity;
+import co.com.k4soft.parqueaderouco.view.tarifa.TarifaActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void goToTarifaActivity(View view) {
-       Intent intent = new Intent(this,TarifaActivity.class);
+       Intent intent = new Intent(this, TarifaActivity.class);
        startActivity(intent);
     }
 
@@ -47,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToMovimientos(View view) {
-
+        Intent intent = new Intent(this, ListaMovimientoActivity.class);
+        startActivity(intent);
     }
 }

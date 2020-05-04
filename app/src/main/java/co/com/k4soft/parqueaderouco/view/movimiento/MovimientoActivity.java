@@ -1,12 +1,7 @@
 package co.com.k4soft.parqueaderouco.view.movimiento;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
-import android.app.MediaRouteButton;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.Layout;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,6 +10,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -172,8 +170,10 @@ public class MovimientoActivity extends AppCompatActivity {
 
     public void registrarSalida(View view) throws ParseException {
         Toast.makeText(getApplicationContext(),R.string.informacion_guardada_exitosamente,Toast.LENGTH_SHORT).show();
+        tarifa = db.getTarifaDAO().getByIdTarifa(movimiento.getIdTarifa());
         movimiento.setFechaSalida(DateUtil.convertDateToStringWithHour(new Date()));
         movimiento.setFinalizaMovimiento(true);
+        movimiento.actualizarValorTotal(tarifa.getPrecio());
         new actualizarMovimiento().execute(movimiento);
         showComponentesSalida();
         btnSalida.setVisibility(View.GONE);

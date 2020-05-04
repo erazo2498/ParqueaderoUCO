@@ -1,6 +1,4 @@
-package co.com.k4soft.parqueaderouco.view;
-
-import androidx.appcompat.app.AppCompatActivity;
+package co.com.k4soft.parqueaderouco.view.tarifa;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -8,9 +6,10 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
 import co.com.k4soft.parqueaderouco.R;
 import co.com.k4soft.parqueaderouco.entidades.Tarifa;
 import co.com.k4soft.parqueaderouco.persistencia.room.DataBaseHelper;

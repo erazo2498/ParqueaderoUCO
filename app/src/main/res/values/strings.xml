@@ -17,6 +17,7 @@
     <string name="cantidad_horas">Cantidad de horas:</string>
     <string name="total_pagar">Total a pagar:</string>
     <string name="sin_tarifas">No existen tarifas configuradas en el sistema</string>
+    <string name="sin_movimientos">No existen movimientos realizados en el sistema</string>
     <string name="actualizacion_satisfactoria">La información se actualizo satisfactoria</string>
     <string name="actualizacion_tarifa">Actualizacion de Tarifas</string>
     <string name="registrar_ingreso_salida">Registrar ingresos y salidas</string>
@@ -25,4 +26,6 @@
     <string name="debe_seleccionar_tarifa">Debe seleccionar una tarifa</string>
     <string name="informacion_guardada_exitosamente">La información se ha guardado exitosamente</string>
     <string name="ver_movimientos">Ver Movimientos</string>
+    <string name="listado_movimiento">Listado de movimientos</string>
+    <string name="movimientos">Movimientos</string>
 </resources>

@@ -5,6 +5,8 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
+import java.util.List;
+
 import co.com.k4soft.parqueaderouco.entidades.Movimiento;
 
 @Dao
@@ -18,5 +20,7 @@ public interface MovimientoDAO {
 
     @Update
     void update(Movimiento movimiento);
-    
+
+    @Query("SELECT * FROM movimiento")
+    List<Movimiento> listar();
 }

@@ -1,6 +1,5 @@
 package co.com.k4soft.parqueaderouco.utilities;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ActionBarUtil {
