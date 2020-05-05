@@ -34,7 +34,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnBuscar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnBuscarRango" />
 
     <TextView
         android:id="@+id/txtFechaInicial"
@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:onClick="onClick"
-        android:text="@string/seleccionar_fecha_inicial"
+        android:hint="@string/seleccionar_fecha_inicial"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/txtFechaFinal"
         app:layout_constraintEnd_toEndOf="@+id/textView5"
@@ -54,16 +54,17 @@
         android:id="@+id/txtFechaFinal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/seleccionar_fecha_final"
         android:onClick="onClick"
-        android:text="@string/seleccionar_fecha_final"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/txtFechaInicial"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtFechaInicial"
         app:layout_constraintTop_toBottomOf="@+id/txtFechaInicial" />
 
     <Button
-        android:id="@+id/btnBuscar"
+        android:id="@+id/btnBuscarRango"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

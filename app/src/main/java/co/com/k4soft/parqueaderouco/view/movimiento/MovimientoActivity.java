@@ -153,23 +153,18 @@ public class MovimientoActivity extends AppCompatActivity {
 
     }
 
-    public void registrarIngreso(View view) throws ParseException {
+    public void registrarIngreso(View view) {
         if(tarifa == null){
             Toast.makeText(getApplicationContext(),R.string.debe_seleccionar_tarifa,Toast.LENGTH_SHORT).show();
         }
         else if(movimiento == null){
-            String fechaActual = DateUtil.convertDateToStringWithHour(new Date());
-            if(DateUtil.hoursElapsed(movimiento.getFechaEntrada(),fechaActual)>0){
-                Toast.makeText(getApplicationContext(), "Por favor configure la hora actual",Toast.LENGTH_SHORT).show();
-            }else {
                 movimiento = new Movimiento();
                 movimiento.setPlaca(txtPlaca.getText().toString());
                 movimiento.setIdTarifa(tarifa.getIdTarifa());
-                movimiento.setFechaEntrada(fechaActual);
+                movimiento.setFechaEntrada(DateUtil.convertDateToStringWithHour(new Date()));
                 new insertarMovimiento().execute(movimiento);
                 movimiento = null;
                 hideComponents();
-            }
         }
     }
 

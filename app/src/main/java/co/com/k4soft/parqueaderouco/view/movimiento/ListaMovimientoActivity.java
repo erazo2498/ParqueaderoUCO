@@ -5,7 +5,6 @@ import android.icu.util.Calendar;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ListView;
@@ -25,6 +24,7 @@ import co.com.k4soft.parqueaderouco.adapters.MovimientoAdapter;
 import co.com.k4soft.parqueaderouco.entidades.Movimiento;
 import co.com.k4soft.parqueaderouco.persistencia.room.DataBaseHelper;
 import co.com.k4soft.parqueaderouco.utilities.ActionBarUtil;
+import co.com.k4soft.parqueaderouco.utilities.DateUtil;
 
 public class ListaMovimientoActivity extends AppCompatActivity {
     private ActionBarUtil actionBarUtil;
@@ -34,10 +34,10 @@ public class ListaMovimientoActivity extends AppCompatActivity {
     public TextView fechaInicio;
     @BindView(R.id.txtFechaFinal)
     public TextView fechaFinal;
-    @BindView(R.id.btnBuscar)
+    @BindView(R.id.btnBuscarRango)
     public Button btnBuscar;
     private MovimientoAdapter movimientoAdapter;
-    public List<Movimiento> listaMovimiento;
+    public List<Movimiento> listaMovimientos;
     DataBaseHelper db;
 
     @Override
@@ -71,11 +71,11 @@ public class ListaMovimientoActivity extends AppCompatActivity {
     }
 
     private void loadMovimientos() {
-        listaMovimiento = db.getMovimientoDAO().listar();
-        if (listaMovimiento.isEmpty()) {
+        listaMovimientos = db.getMovimientoDAO().listar();
+        if (listaMovimientos.isEmpty()) {
             Toast.makeText(getApplicationContext(), R.string.sin_movimientos, Toast.LENGTH_SHORT).show();
         } else {
-            movimientoAdapter = new MovimientoAdapter(this, listaMovimiento);
+            movimientoAdapter = new MovimientoAdapter(this, listaMovimientos);
             listViewMovimiento.setAdapter(movimientoAdapter);
         }
     }
@@ -89,7 +89,22 @@ public class ListaMovimientoActivity extends AppCompatActivity {
             showDatePickerDialog(fechaFinal);
         }
         else if(v==btnBuscar){
-
+            String fechaInicio2 = fechaInicio.getText().toString() + " 00:00:00";
+            String fechaFinal2 = fechaFinal.getText().toString()  + " 24:59:59";
+            if("".equals(fechaFinal.getText().toString()) || "".equals(fechaInicio.getText().toString()))
+            {
+                Toast.makeText(getApplicationContext(), "Debe seleccionar ambas fechas", Toast.LENGTH_SHORT).show();
+            }
+            else if(DateUtil.convertStringToDate(fechaFinal2).before(DateUtil.convertStringToDate(fechaInicio2))) {
+                Toast.makeText(getApplicationContext(), "El rango de fechas es invalido, por favor verifica el rango", Toast.LENGTH_SHORT).show();
+            }else{
+                listaMovimientos = db.getMovimientoDAO().listarRango(fechaInicio2, fechaFinal2);
+                if(listaMovimientos==null || listaMovimientos.isEmpty()) {
+                    Toast.makeText(getApplicationContext(), "No se encontró ningun movimiento en el rango seleccionado", Toast.LENGTH_SHORT).show();
+                }
+                movimientoAdapter = new MovimientoAdapter(this, listaMovimientos);
+                listViewMovimiento.setAdapter(movimientoAdapter);
+            }
         }
 
     }
@@ -103,7 +118,7 @@ public class ListaMovimientoActivity extends AppCompatActivity {
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        fecha.setText(dayOfMonth+"/"+month+"/"+year);
+                        fecha.setText(year + "-" + (((month+1)>9)?(month+1):"0"+(month+1)) + "-" + (((dayOfMonth)>9)?(dayOfMonth):"0"+(dayOfMonth)));
                     }
                 },ano,mes,dia);
         datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
