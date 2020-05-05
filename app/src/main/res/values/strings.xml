@@ -28,4 +28,6 @@
     <string name="ver_movimientos">Ver Movimientos</string>
     <string name="listado_movimiento">Listado de movimientos</string>
     <string name="movimientos">Movimientos</string>
+    <string name="seleccionar_fecha_inicial">Seleccione una fecha inicial</string>
+    <string name="seleccionar_fecha_final">Seleccione una fecha final</string>
 </resources>

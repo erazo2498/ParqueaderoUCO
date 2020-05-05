@@ -21,6 +21,9 @@ public interface MovimientoDAO {
     @Update
     void update(Movimiento movimiento);
 
-    @Query("SELECT * FROM movimiento")
+    @Query("SELECT * FROM movimiento ORDER BY fechaEntrada ASC")
     List<Movimiento> listar();
+
+    @Query("SELECT * FROM movimiento WHERE fechaEntrada>=:fechaInicial AND fechaEntrada<=:fechaFinal ORDER BY fechaEntrada ASC")
+    List<Movimiento> listarRango(String fechaInicial, String fechaFinal);
 }
